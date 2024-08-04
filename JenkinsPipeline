@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/devopsbyraham/dockermsproject.git'
+                git 'https://github.com/ReyazShaik/dockerproject.git'
             }
         }
         stage('build') {
@@ -19,13 +19,13 @@ pipeline {
         }
         stage('push') {
             steps {
-                sh 'docker login -u mupparaju0007 -p $password'
+                sh 'docker login -u reyadocker -p $password'
                 sh 'docker push $repo'
             }
         }
         stage('deploy') {
             steps {
-                sh 'docker stack deploy -c docker-compose.yml paytm'
+                sh 'docker stack deploy bank -c docker-compose.yml'
             }
         }
     }
